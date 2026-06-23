@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G-Easy Marketing — Aosta Valley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:    #0A0A0A;
+    --white:  #F8F8F8;
+    --surface:#EFEFEF;
+    --muted:  #6B6B6B;
+    --accent: #E8FF00;
+    --border: #E0E0E0;
+    --card-bg:#FFFFFF;
+    --font-display: 'Syne', sans-serif;
+    --font-body:    'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--accent);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(248,248,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .nav__logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav__logo span {
+    display: inline-flex;
+    background: var(--ink);
+    color: var(--accent);
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin-right: 6px;
+  }
+
+  .nav__links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav__links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav__links a:hover { color: var(--ink); }
+
+  .nav__cta {
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav__cta:hover {
+    background: var(--accent);
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .nav__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .nav__mobile {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .nav__mobile a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__mobile.open { display: flex; }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding-top: 64px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero__bg-letter {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-52%);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(320px, 40vw, 580px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px #CACACA;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.05em;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 24px 64px;
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .hero__eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .hero__eyebrow-text {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero__headline {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+
+  .hero__headline em {
+    font-style: normal;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero__headline em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 8px;
+    background: var(--accent);
+    z-index: -1;
+  }
+
+  .hero__sub {
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #F8F8F8;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    color: var(--ink);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 32px;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  .hero__stats {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 0;
+    max-width: 620px;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+  }
+
+  .hero__stat { padding-right: 40px; }
+
+  .hero__stat + .hero__stat {
+    padding-left: 40px;
+    border-left: 1px solid var(--border);
+  }
+
+  .hero__stat-number {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .hero__stat-number span { color: var(--accent); -webkit-text-stroke: 1px var(--ink); }
+
+  .hero__stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-section {
+    background: var(--ink);
+    overflow: hidden;
+    padding: 18px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    animation: marquee 22s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 0 32px;
+    white-space: nowrap;
+  }
+
+  .marquee-item span {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .marquee-item .dot {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 104px 0; }
+  .section--surface { background: var(--surface); }
+
+  .section__header { margin-bottom: 64px; }
+  .section__header .tag { margin-bottom: 20px; }
+
+  .section__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    max-width: 640px;
+  }
+
+  .section__sub {
+    margin-top: 16px;
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    padding: 40px 36px;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 3px;
+    background: var(--accent);
+    transition: width 0.35s ease;
+  }
+
+  .service-card:hover::after { width: 100%; }
+  .service-card:hover { background: #F5F5F5; }
+
+  .service-card__icon {
+    width: 48px; height: 48px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 22px;
+  }
+
+  .service-card__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .service-card__desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ─── WHY US ─── */
+  .why-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .why-visual__card {
+    background: var(--ink);
+    color: var(--white);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-visual__card-bg {
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 140px;
+    line-height: 1;
+    color: rgba(255,255,255,0.05);
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .why-visual__stat { margin-bottom: 32px; }
+
+  .why-visual__stat-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 64px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .why-visual__stat-label {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+    max-width: 200px;
+  }
+
+  .why-visual__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    padding: 10px 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+
+  .why-visual__badge-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .why-points { display: flex; flex-direction: column; }
+
+  .why-point {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .why-point:first-child { padding-top: 0; }
+
+  .why-point__num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--accent);
+    background: var(--ink);
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .why-point__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .why-point__desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── PROCESS ─── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(100% / 8);
+    right: calc(100% / 8);
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .process-step { padding: 0 24px 0 0; position: relative; z-index: 1; }
+
+  .process-step__num {
+    width: 56px; height: 56px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .process-step:hover .process-step__num {
+    background: var(--ink);
+    color: var(--accent);
+    border-color: var(--ink);
+  }
+
+  .process-step__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .process-step__desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  /* ─── PRICING ─── */
+  .pricing-section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .pricing-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Siti web block */
+  .pricing-sites {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+
+  .pricing-site-card {
+    background: var(--card-bg);
+    padding: 32px 28px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .pricing-site-card:hover { background: #F5F5F5; }
+
+  .pricing-site-card__type {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .pricing-site-card__price {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pricing-site-card__price sup {
+    font-size: 18px;
+    vertical-align: super;
+    font-weight: 600;
+  }
+
+  .pricing-site-card__hosting {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-site-card__hosting strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .pricing-site-card__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pricing-site-card__feature {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .pricing-site-card__feature::before {
+    content: '→';
+    color: var(--ink);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .pricing-hosting-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 64px;
+    padding: 12px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+  }
+
+  /* Social block */
+  .pricing-social {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pricing-card {
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    position: relative;
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+  }
+
+  .pricing-card--featured {
+    background: var(--ink);
+    color: #F8F8F8;
+    border-color: var(--ink);
+    transform: scale(1.02);
+  }
+
+  .pricing-card--featured:hover {
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -14px; left: 32px;
+    background: var(--accent);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  .pricing-card__name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: var(--muted);
+  }
+
+  .pricing-card--featured .pricing-card__name { color: rgba(255,255,255,0.5); }
+
+  .pricing-card__amount {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pricing-card__amount sup { font-size: 20px; vertical-align: super; font-weight: 600; }
+
+  .pricing-card__period {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .pricing-card--featured .pricing-card__period { color: rgba(255,255,255,0.4); }
+
+  .pricing-card__divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 24px;
+  }
+
+  .pricing-card--featured .pricing-card__divider { background: rgba(255,255,255,0.12); }
+
+  .pricing-card__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    margin-bottom: 28px;
+  }
+
+  .pricing-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .pricing-card__feature::before {
+    content: '→';
+    color: var(--accent);
+    -webkit-text-stroke: 0.5px var(--ink);
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .pricing-card--featured .pricing-card__feature { color: rgba(255,255,255,0.8); }
+
+  .btn-pricing {
+    display: block;
+    text-align: center;
+    padding: 13px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 2px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-pricing:hover { background: var(--ink); color: var(--accent); }
+
+  .btn-pricing--light {
+    border-color: rgba(255,255,255,0.3);
+    color: #F8F8F8;
+  }
+
+  .btn-pricing--light:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  .pricing-note {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info { padding-top: 8px; }
+
+  .contact-info__title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(36px, 4.5vw, 52px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .contact-info__sub {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 40px;
+    max-width: 380px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-detail__icon {
+    width: 40px; height: 40px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-detail__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-detail__value { font-size: 15px; font-weight: 500; }
+
+  .calendly-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    background: var(--accent);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 24px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .calendly-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,255,0,0.3); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--ink);
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--ink); }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--ink);
+    color: #F8F8F8;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+
+  /* ─── FOOTER ─── */
+  .footer { background: var(--ink); color: #F8F8F8; padding: 64px 0 32px; }
+
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer__brand { max-width: 320px; }
+
+  .footer__logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer__logo span {
+    display: inline-flex;
+    background: var(--accent);
+    color: var(--ink);
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .footer__tagline { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+  .footer__links { display: flex; gap: 64px; flex-wrap: wrap; }
+
+  .footer__col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer__col ul a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+  .footer__col ul a:hover { color: var(--accent); }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer__bottom a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+  .footer__bottom a:hover { color: var(--accent); }
+
+  /* ─── ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: none; }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── FORM SUCCESS ─── */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 48px 32px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+
+  .form-success__icon {
+    width: 56px; height: 56px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 20px;
+  }
+
+  .form-success__title { font-family: var(--font-display); font-weight: 800; font-size: 22px; margin-bottom: 8px; }
+  .form-success__sub { font-size: 15px; color: var(--muted); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-sites { grid-template-columns: 1fr; }
+    .pricing-social { grid-template-columns: 1fr; max-width: 440px; }
+    .pricing-card--featured { transform: none; }
+    .pricing-card--featured:hover { transform: translateY(-4px); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .process-steps::before { display: none; }
+    .why-layout { grid-template-columns: 1fr; gap: 48px; }
+    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  @media (max-width: 680px) {
+    .section { padding: 72px 0; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero__stats { grid-template-columns: 1fr; gap: 24px; }
+    .hero__stat + .hero__stat { padding-left: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 24px; }
+    .nav__links { display: none; }
+    .nav__cta { display: none; }
+    .nav__hamburger { display: flex; }
+    .footer__links { gap: 32px; }
+    .footer__top { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .marquee-track { animation: none; transition: none; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <div class="nav__logo">
+      <span>G</span>G-Easy Marketing
+    </div>
+    <ul class="nav__links">
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#perche">Perché noi</a></li>
+      <li><a href="#come">Come funziona</a></li>
+      <li><a href="#prezzi">Prezzi</a></li>
+    </ul>
+    <button class="nav__cta" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Inizia ora →</button>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#servizi" onclick="closeMobile()">Servizi</a>
+    <a href="#perche" onclick="closeMobile()">Perché noi</a>
+    <a href="#come" onclick="closeMobile()">Come funziona</a>
+    <a href="#prezzi" onclick="closeMobile()">Prezzi</a>
+    <a href="#contatti" onclick="closeMobile()">Contattaci</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg-letter" aria-hidden="true">G</div>
+  <div class="hero__content">
+    <div class="hero__eyebrow">
+      <div class="hero__eyebrow-line"></div>
+      <span class="hero__eyebrow-text">Aosta Valley · Digital Agency</span>
+    </div>
+    <h1 class="hero__headline reveal">
+      Marketing<br>digitale che<br><em>funziona</em>
+    </h1>
+    <p class="hero__sub reveal reveal-delay-1">
+      Siti web, SEO, chatbot AI e social media — costruiti per le imprese locali della Valle d'Aosta. Senza complicazioni, senza spreco di budget.
+    </p>
+    <div class="hero__actions reveal reveal-delay-2">
+      <a href="#contatti" class="btn-primary">Parliamo del tuo progetto</a>
+      <a href="#servizi" class="btn-ghost">Scopri i servizi</a>
+    </div>
+    <div class="hero__stats reveal reveal-delay-3">
+      <div class="hero__stat">
+        <div class="hero__stat-number">100<span>%</span></div>
+        <div class="hero__stat-label">Locale — conosciamo il territorio</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-number">Fast</div>
+        <div class="hero__stat-label">Risultati concreti, tempi brevi</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-number">0</div>
+        <div class="hero__stat-label">Intermediari — lavori direttamente con noi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Siti Web</span><div class="dot"></div><span>SEO Locale</span><div class="dot"></div><span>AI Chatbot</span><div class="dot"></div><span>Social Media</span><div class="dot"></div><span>Google Ads</span><div class="dot"></div><span>Google Business</span><div class="dot"></div><span>Branding</span><div class="dot"></div><span>Automazione</span><div class="dot"></div></div>
+    <div class="marquee-item"><span>Siti Web</span><div class="dot"></div><span>SEO Locale</span><div class="dot"></div><span>AI Chatbot</span><div class="dot"></div><span>Social Media</span><div class="dot"></div><span>Google Ads</span><div class="dot"></div><span>Google Business</span><div class="dot"></div><span>Branding</span><div class="dot"></div><span>Automazione</span><div class="dot"></div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="servizi">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="tag">Servizi</div>
+      <h2 class="section__title">Tutto ciò di cui la tua attività ha bisogno online</h2>
+      <p class="section__sub">Servizi digitali completi pensati per le PMI e i commercianti della Valle d'Aosta.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-card__icon">🌐</div>
+        <h3 class="service-card__title">Sito Web Professionale</h3>
+        <p class="service-card__desc">Design su misura, mobile-first, veloce e ottimizzato per convertire visitatori in clienti. Nessun template mediocre.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card__icon">📈</div>
+        <h3 class="service-card__title">SEO Locale</h3>
+        <p class="service-card__desc">Fatti trovare su Google da chi cerca esattamente quello che offri — nella tua città, nel tuo quartiere, nella tua valle.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card__icon">🤖</div>
+        <h3 class="service-card__title">AI Chatbot & Automazione</h3>
+        <p class="service-card__desc">Chatbot intelligenti che rispondono ai clienti H24, automatizzano le FAQ e liberano il tuo tempo.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__icon">📱</div>
+        <h3 class="service-card__title">Social Media Management</h3>
+        <p class="service-card__desc">Contenuti, strategia e pubblicazione su Instagram, Facebook e TikTok. Una presenza che vende davvero.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card__icon">📍</div>
+        <h3 class="service-card__title">Google Business Profile</h3>
+        <p class="service-card__desc">Configurazione, ottimizzazione e gestione della tua scheda Google. Il tuo biglietto da visita digitale più importante.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card__icon">🎯</div>
+        <h3 class="service-card__title">Pubblicità Online</h3>
+        <p class="service-card__desc">Campagne Google Ads e Meta Ads ottimizzate per il tuo budget. Ogni euro investito è tracciato e rendicontato.</p>
+      </div>
+      <div class="service-card reveal" style="grid-column: span 3;">
+        <div style="display:flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
+          <div class="service-card__icon">✦</div>
+          <div>
+            <h3 class="service-card__title">Branding & Identità Visiva</h3>
+            <p class="service-card__desc" style="max-width: 640px;">Logo, palette colori, tipografia e linee guida visive. Un'identità che comunica chi sei prima ancora che tu apra la bocca.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section--surface" id="perche">
+  <div class="container">
+    <div class="why-layout">
+      <div class="why-visual reveal">
+        <div class="why-visual__card">
+          <div class="why-visual__card-bg" aria-hidden="true">G</div>
+          <div class="why-visual__stat">
+            <div class="why-visual__stat-num">Valle<br>d'Aosta</div>
+            <div class="why-visual__stat-label">La nostra casa, il nostro mercato</div>
+          </div>
+          <div class="why-visual__badge">
+            <div class="why-visual__badge-dot"></div>
+            Attivi e disponibili
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section__header" style="margin-bottom: 0;">
+          <div class="tag reveal">Perché noi</div>
+          <h2 class="section__title reveal" style="margin-top: 16px;">Non siamo un'agenzia come le altre</h2>
+        </div>
+        <div class="why-points" style="margin-top: 40px;">
+          <div class="why-point reveal">
+            <div class="why-point__num">1</div>
+            <div>
+              <div class="why-point__title">Siamo locali, davvero</div>
+              <p class="why-point__desc">Conosciamo la Valle d'Aosta, le sue imprese, il suo pubblico. Non lavoriamo con template uguali per tutti — ogni progetto nasce dal territorio.</p>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-delay-1">
+            <div class="why-point__num">2</div>
+            <div>
+              <div class="why-point__title">Young, agile, senza burocrazia</div>
+              <p class="why-point__desc">Nessun account manager che sparisce dopo la firma. Parli direttamente con chi esegue il lavoro. Risposte rapide, decisioni veloci.</p>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-delay-2">
+            <div class="why-point__num">3</div>
+            <div>
+              <div class="why-point__title">Prezzi pensati per le PMI</div>
+              <p class="why-point__desc">Non devi avere un budget da grande azienda. Costruiamo soluzioni su misura per ristoranti, negozi, studi professionali e artigiani.</p>
+            </div>
+          </div>
+          <div class="why-point reveal reveal-delay-3">
+            <div class="why-point__num">4</div>
+            <div>
+              <div class="why-point__title">Risultati misurabili</div>
+              <p class="why-point__desc">Tutto ciò che facciamo è tracciabile. Report chiari, metriche reali, nessun fumo negli occhi. Sai sempre dove va il tuo budget.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="come">
+  <div class="container">
+    <div class="section__header reveal" style="text-align: center; max-width: 600px; margin: 0 auto 64px;">
+      <div class="tag">Come funziona</div>
+      <h2 class="section__title" style="margin: 16px auto 0;">Dal primo contatto al lancio — senza stress</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-step__num">01</div>
+        <h3 class="process-step__title">Chiamata gratuita</h3>
+        <p class="process-step__desc">Parliamo del tuo business, dei tuoi obiettivi e di cosa ti serve. Nessun impegno, nessuna pressione — solo ascolto.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step__num">02</div>
+        <h3 class="process-step__title">Proposta su misura</h3>
+        <p class="process-step__desc">Ricevi un preventivo chiaro e dettagliato, con tempi e costi definiti. Zero sorprese in corso d'opera.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-step__num">03</div>
+        <h3 class="process-step__title">Produzione e feedback</h3>
+        <p class="process-step__desc">Lavoriamo in cicli brevi con revisioni continue. Sei sempre aggiornato e puoi intervenire in qualsiasi momento.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-step__num">04</div>
+        <h3 class="process-step__title">Lancio & supporto</h3>
+        <p class="process-step__desc">Go live. E non spariremo: assistenza, monitoraggio e ottimizzazioni continuative fanno parte del servizio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section--surface" id="prezzi">
+  <div class="container">
+    <div class="section__header reveal" style="text-align: center; max-width: 580px; margin: 0 auto 64px;">
+      <div class="tag">Prezzi</div>
+      <h2 class="section__title" style="margin: 16px auto 0;">Investimento chiaro, nessuna sorpresa</h2>
+      <p class="section__sub" style="margin: 16px auto 0; max-width: 420px;">Siti web con hosting incluso, e pacchetti social in abbonamento mensile. Tutto personalizzabile.</p>
+    </div>
+
+    <!-- SITI WEB -->
+    <div class="pricing-section-title reveal">Siti Web + Hosting</div>
+    <div class="pricing-sites reveal">
+      <div class="pricing-site-card">
+        <div class="pricing-site-card__type">Landing Page</div>
+        <div class="pricing-site-card__price"><sup>€</sup>200</div>
+        <div class="pricing-site-card__hosting">+ <strong>€15/mese</strong> hosting incluso</div>
+        <ul class="pricing-site-card__features">
+          <li class="pricing-site-card__feature">Sito one-page professionale</li>
+          <li class="pricing-site-card__feature">Mobile-first & veloce</li>
+          <li class="pricing-site-card__feature">Form di contatto</li>
+          <li class="pricing-site-card__feature">Setup Google Business</li>
+        </ul>
+      </div>
+      <div class="pricing-site-card" style="border-left: 3px solid var(--accent);">
+        <div class="pricing-site-card__type">Sito Base</div>
+        <div class="pricing-site-card__price"><sup>€</sup>400</div>
+        <div class="pricing-site-card__hosting">+ <strong>€15/mese</strong> hosting incluso</div>
+        <ul class="pricing-site-card__features">
+          <li class="pricing-site-card__feature">Fino a 5 pagine</li>
+          <li class="pricing-site-card__feature">SEO on-page base</li>
+          <li class="pricing-site-card__feature">Blog o galleria</li>
+          <li class="pricing-site-card__feature">Manutenzione inclusa</li>
+        </ul>
+      </div>
+      <div class="pricing-site-card">
+        <div class="pricing-site-card__type">Sito Avanzato</div>
+        <div class="pricing-site-card__price"><sup>€</sup>800</div>
+        <div class="pricing-site-card__hosting">+ <strong>€25/mese</strong> hosting + manutenzione</div>
+        <ul class="pricing-site-card__features">
+          <li class="pricing-site-card__feature">Design custom completo</li>
+          <li class="pricing-site-card__feature">Funzionalità avanzate</li>
+          <li class="pricing-site-card__feature">SEO avanzata + analytics</li>
+          <li class="pricing-site-card__feature">AI Chatbot integrato</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pricing-hosting-note reveal">★ Il costo di hosting copre dominio, server, aggiornamenti e supporto tecnico. Nessun costo nascosto.</div>
+
+    <!-- SOCIAL -->
+    <div class="pricing-section-title reveal">Social Media — Abbonamento Mensile</div>
+    <div class="pricing-social">
+      <div class="pricing-card reveal">
+        <div class="pricing-card__name">Starter</div>
+        <div class="pricing-card__amount"><sup>€</sup>150</div>
+        <div class="pricing-card__period">al mese · disdici quando vuoi</div>
+        <div class="pricing-card__divider"></div>
+        <ul class="pricing-card__features">
+          <li class="pricing-card__feature">8 post al mese</li>
+          <li class="pricing-card__feature">1 piattaforma (Instagram o Facebook)</li>
+          <li class="pricing-card__feature">Grafica e copy inclusi</li>
+          <li class="pricing-card__feature">Report mensile</li>
+        </ul>
+        <a href="#contatti" class="btn-pricing">Inizia con Starter</a>
+      </div>
+
+      <div class="pricing-card pricing-card--featured reveal reveal-delay-1">
+        <div class="pricing-badge">Più scelto</div>
+        <div class="pricing-card__name">Standard</div>
+        <div class="pricing-card__amount" style="color: var(--accent);"><sup style="color:var(--accent)">€</sup>280</div>
+        <div class="pricing-card__period">al mese · disdici quando vuoi</div>
+        <div class="pricing-card__divider"></div>
+        <ul class="pricing-card__features">
+          <li class="pricing-card__feature">16 post al mese</li>
+          <li class="pricing-card__feature">2 piattaforme</li>
+          <li class="pricing-card__feature">Grafica, copy e stories</li>
+          <li class="pricing-card__feature">Gestione commenti</li>
+          <li class="pricing-card__feature">Report bisettimanale</li>
+        </ul>
+        <a href="#contatti" class="btn-pricing btn-pricing--light">Inizia con Standard</a>
+      </div>
+
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-card__name">Full</div>
+        <div class="pricing-card__amount"><sup>€</sup>450</div>
+        <div class="pricing-card__period">al mese · disdici quando vuoi</div>
+        <div class="pricing-card__divider"></div>
+        <ul class="pricing-card__features">
+          <li class="pricing-card__feature">Post illimitati</li>
+          <li class="pricing-card__feature">3+ piattaforme (+ TikTok)</li>
+          <li class="pricing-card__feature">Strategia mensile dedicata</li>
+          <li class="pricing-card__feature">Gestione DM e commenti</li>
+          <li class="pricing-card__feature">Ads social (budget escluso)</li>
+        </ul>
+        <a href="#contatti" class="btn-pricing">Inizia con Full</a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">Tutti i pacchetti sono negoziabili. <a href="#contatti" style="color: var(--ink); font-weight: 600; text-decoration: underline;">Scrivici e costruiamo qualcosa su misura.</a></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contatti">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-info reveal">
+        <div class="tag" style="margin-bottom: 20px;">Contatti</div>
+        <h2 class="contact-info__title">Parliamo.<br>È gratuito.</h2>
+        <p class="contact-info__sub">Una chiamata esplorativa di 30 minuti, senza impegno. Raccontaci la tua attività e ti diciamo cosa possiamo fare — concretamente.</p>
+        <div class="contact-detail">
+          <div class="contact-detail__icon">📍</div>
+          <div>
+            <div class="contact-detail__label">Sede</div>
+            <div class="contact-detail__value">Aosta, Valle d'Aosta</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail__icon">✉️</div>
+          <div>
+            <div class="contact-detail__label">Email</div>
+            <div class="contact-detail__value">ciao@geasymarketing.it</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail__icon">💬</div>
+          <div>
+            <div class="contact-detail__label">Risposta</div>
+            <div class="contact-detail__value">Entro 24 ore lavorative</div>
+          </div>
+        </div>
+        <a href="https://calendly.com/geasymarketing" target="_blank" class="calendly-btn">
+          📅 Prenota una chiamata gratuita →
+        </a>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" placeholder="Mario Rossi">
+            </div>
+            <div class="form-group">
+              <label for="attivita">Tipo di attività</label>
+              <input type="text" id="attivita" placeholder="Es. Ristorante, Studio…">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="mario@esempio.it">
+          </div>
+          <div class="form-group">
+            <label for="servizio">Cosa ti interessa?</label>
+            <select id="servizio">
+              <option value="">Seleziona un servizio…</option>
+              <option>Sito Web — Landing Page</option>
+              <option>Sito Web — Base</option>
+              <option>Sito Web — Avanzato</option>
+              <option>Social Media — Starter</option>
+              <option>Social Media — Standard</option>
+              <option>Social Media — Full</option>
+              <option>SEO Locale</option>
+              <option>AI Chatbot & Automazione</option>
+              <option>Google Business Profile</option>
+              <option>Pubblicità Online</option>
+              <option>Branding</option>
+              <option>Non lo so ancora — parliamone</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="messaggio">Messaggio (opzionale)</label>
+            <textarea id="messaggio" placeholder="Raccontaci brevemente la tua attività e cosa vorresti migliorare…"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Invia richiesta →</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success__icon">✓</div>
+          <div class="form-success__title">Messaggio ricevuto!</div>
+          <div class="form-success__sub">Ti risponderemo entro 24 ore lavorative. A presto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span>G</span>G-Easy Marketing
+        </div>
+        <p class="footer__tagline">Marketing digitale per le imprese della Valle d'Aosta. Locali, agili, concreti.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="#servizi">Siti Web</a></li>
+            <li><a href="#servizi">SEO Locale</a></li>
+            <li><a href="#servizi">AI Chatbot</a></li>
+            <li><a href="#servizi">Social Media</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Agenzia</h4>
+          <ul>
+            <li><a href="#perche">Chi siamo</a></li>
+            <li><a href="#come">Come lavoriamo</a></li>
+            <li><a href="#prezzi">Prezzi</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 G-Easy Marketing · Aosta, Valle d'Aosta</span>
+      <span>Privacy Policy · Cookie Policy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 100);
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 20 ? '#CCCCCC' : 'var(--border)';
+  });
+
+  async function submitForm() {
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const attivita = document.getElementById('attivita').value.trim();
+    const servizio = document.getElementById('servizio').value;
+    const messaggio = document.getElementById('messaggio').value.trim();
+
+    if (!nome || !email) {
+      alert('Per favore compila almeno nome ed email.');
+      return;
+    }
+
+    const btn = document.querySelector('.form-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Invio in corso…';
+    btn.disabled = true;
+
+    try {
+      await fetch('https://hook.eu2.make.com/46dtb77ayd4j6j2aow4qzaol2lq4bq8a', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome,
+          email,
+          attivita: attivita || '—',
+          servizio: servizio || 'Non specificato',
+          messaggio: messaggio || '—'
+        })
+      });
+    } catch (err) {
+      // Continua comunque — Make riceve i dati anche in caso di errore CORS
+    }
+
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); closeMobile(); }
+    });
+  });
+</script>
+</body>
+</html>
